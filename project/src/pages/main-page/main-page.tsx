@@ -2,6 +2,9 @@ import FilmCard from '../../components/film-card/film-card';
 
 type mainPageProps = {
   cardCount: number;
+  promoFilmTitle: string,
+  promoFilmGenre: string,
+  promoFilmDate: string
 }
 type cardContainerProps = {
   cardCount: number;
@@ -20,7 +23,7 @@ function CardContainer({ cardCount }: cardContainerProps): JSX.Element {
 }
 
 
-export default function MainPage({cardCount} : mainPageProps): JSX.Element {
+export default function MainPage({cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate} : mainPageProps): JSX.Element {
   return (
     <body>
       <div className="visually-hidden">
@@ -94,10 +97,10 @@ export default function MainPage({cardCount} : mainPageProps): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{promoFilmTitle}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
+                <span className="film-card__genre">{promoFilmGenre}</span>
+                <span className="film-card__year">{promoFilmDate}</span>
               </p>
 
               <div className="film-card__buttons">
