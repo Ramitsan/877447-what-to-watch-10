@@ -1,4 +1,11 @@
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { AppRoute } from '../../const';
+import AddReviewPage from '../../pages/add-review-page/add-review-page';
 import MainPage from '../../pages/main-page/main-page';
+import MoviePage from '../../pages/movie-page/movie-page';
+import MyLIstPage from '../../pages/my-list-page/my-list-page';
+import PlayerPage from '../../pages/playerPage/playerPage';
+import SignInPage from '../../pages/sign-in-page/sign-in-page';
 
 type AppProps = {
   cardCount: number,
@@ -7,15 +14,41 @@ type AppProps = {
   promoFilmDate: string,
 }
 
-function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate }: AppProps): JSX.Element {
+export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate }: AppProps): JSX.Element {
   return (
-    <MainPage
-      cardCount={cardCount}
-      promoFilmTitle={promoFilmTitle}
-      promoFilmGenre={promoFilmGenre}
-      promoFilmDate={promoFilmDate}
-    />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path={AppRoute.Main}
+          element={
+            <MainPage cardCount={cardCount}
+              promoFilmTitle={promoFilmTitle}
+              promoFilmGenre={promoFilmGenre}
+              promoFilmDate={promoFilmDate}
+            />
+          }
+        />
+        <Route
+          path={AppRoute.SignIn}
+          element={<SignInPage />}
+        />
+        <Route
+          path={AppRoute.MyList}
+          element={<MyLIstPage />}
+        />
+        <Route
+          path={AppRoute.Film}
+          element={<MoviePage />}
+        />
+        <Route
+          path={AppRoute.AddReview}
+          element={<AddReviewPage />}
+        />
+        <Route
+          path={AppRoute.Player}
+          element={<PlayerPage />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
