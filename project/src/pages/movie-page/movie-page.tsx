@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function MoviePage(): JSX.Element {
   return (
     <>
@@ -11,11 +13,11 @@ export default function MoviePage(): JSX.Element {
 
           <header className="page-header film-card__head">
             <div className="logo">
-              <a href="main.html" className="logo__link">
+              <Link to="/" className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
-              </a>
+              </Link>
             </div>
 
             <ul className="user-block">
@@ -25,7 +27,7 @@ export default function MoviePage(): JSX.Element {
                 </div>
               </li>
               <li className="user-block__item">
-                <a className="user-block__link">Sign out</a>
+                <Link to="#" className="user-block__link">Sign out</Link>
               </li>
             </ul>
           </header>
@@ -52,7 +54,7 @@ export default function MoviePage(): JSX.Element {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to="add-review.html" className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -68,13 +70,13 @@ export default function MoviePage(): JSX.Element {
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
-                    <a href="#" className="film-nav__link">Overview</a>
+                    <Link to="#" className="film-nav__link">Overview</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Details</a>
+                    <Link to="#" className="film-nav__link">Details</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Reviews</a>
+                    <Link to="#" className="film-nav__link">Reviews</Link>
                   </li>
                 </ul>
               </nav>
@@ -111,7 +113,7 @@ export default function MoviePage(): JSX.Element {
                 <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
+                <Link className="small-film-card__link" to="film-page.html">Fantastic Beasts: The Crimes of Grindelwald</Link>
               </h3>
             </article>
 
@@ -120,7 +122,7 @@ export default function MoviePage(): JSX.Element {
                 <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Bohemian Rhapsody</a>
+                <Link className="small-film-card__link" to="film-page.html">Bohemian Rhapsody</Link>
               </h3>
             </article>
 
@@ -129,7 +131,7 @@ export default function MoviePage(): JSX.Element {
                 <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Macbeth</a>
+                <Link className="small-film-card__link" to="film-page.html">Macbeth</Link>
               </h3>
             </article>
 
@@ -138,7 +140,7 @@ export default function MoviePage(): JSX.Element {
                 <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
               </div>
               <h3 className="small-film-card__title">
-                <a className="small-film-card__link" href="film-page.html">Aviator</a>
+                <Link className="small-film-card__link" to="film-page.html">Aviator</Link>
               </h3>
             </article>
           </div>
@@ -146,11 +148,11 @@ export default function MoviePage(): JSX.Element {
 
         <footer className="page-footer">
           <div className="logo">
-            <a href="main.html" className="logo__link logo__link--light">
+            <Link to="/" className="logo__link logo__link--light">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
-            </a>
+            </Link>
           </div>
 
           <div className="copyright">
