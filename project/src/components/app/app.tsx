@@ -1,5 +1,6 @@
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { AppRoute } from '../../const';
+import NotFound from '../../pages/404-page/404-page';
 import AddReviewPage from '../../pages/add-review-page/add-review-page';
 import MainPage from '../../pages/main-page/main-page';
 import MoviePage from '../../pages/movie-page/movie-page';
@@ -47,6 +48,10 @@ export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFi
         <Route
           path={AppRoute.Player}
           element={<PlayerPage />}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
         />
       </Routes>
     </BrowserRouter>
