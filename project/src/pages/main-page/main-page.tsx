@@ -1,30 +1,17 @@
 import { Link } from 'react-router-dom';
-import FilmCard from '../../components/film-card/film-card';
 import Logo from '../../components/logo/logo';
+import CardList from '../../components/card-list/card-list';
+import { Film } from '../../types/film';
 
 type mainPageProps = {
   cardCount: number;
-  promoFilmTitle: string,
-  promoFilmGenre: string,
-  promoFilmDate: string
-}
-type cardContainerProps = {
-  cardCount: number;
+  promoFilmTitle: string;
+  promoFilmGenre: string;
+  promoFilmDate: string;
+  films: Film[];
 }
 
-function CardContainer({ cardCount }: cardContainerProps): JSX.Element {
-  const cards: Array<JSX.Element> = [];
-  for (let i = 0; i < cardCount; i++) {
-    cards.push(<FilmCard />);
-  }
-  return (
-    <div className="catalog__films-list">
-      {cards}
-    </div>
-  );
-}
-
-export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate }: mainPageProps): JSX.Element {
+export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films }: mainPageProps): JSX.Element {
   return (
     <>
       <section className="film-card">
@@ -117,7 +104,7 @@ export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, pr
               <Link to="#" className="catalog__genres-link">Thrillers</Link>
             </li>
           </ul>
-          <CardContainer cardCount={cardCount} />
+          <CardList cardCount={cardCount} films={films} />
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
           </div>

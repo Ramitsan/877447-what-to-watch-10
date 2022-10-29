@@ -1,6 +1,6 @@
 import { Film } from '../types/film';
 
-export const FilmsList: Film[] = [
+export const films: Film[] = [
   {
     id: 1,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -43,7 +43,7 @@ export const FilmsList: Film[] = [
     id: 3,
     name: 'The Grand Budapest Hotel',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
-    previewImage: 'img/the-grand-budapest-hotel.jpg',
+    previewImage: 'img/the-grand-budapest-hotel-poster.jpg',
     backgroundImage: 'img/the-grand-budapest-hotel-bg.jpg',
     backgroundColor: '#ffffff',
     videoLink: 'https://www.imdb.com/video/vi1157933593/?playlistId=tt2278388&ref_=tt_ov_vi',
@@ -144,7 +144,7 @@ export const FilmsList: Film[] = [
     videoLink: 'https://www.imdb.com/video/vi3857035801/?playlistId=tt1663202&ref_=tt_pr_ov_vi',
     previewVideoLink: 'https://www.imdb.com/title/tt1663202/?ref_=nv_sr_srsg_0',
     description: 'A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.',
-    rating: 9, 3,
+    rating: 9.3,
     scoresCount: 500,
     director: 'Alejandro G. Iñárritu',
     starring: ['Leonardo DiCaprio', 'Tom Hardy', 'Will Poulter'],
