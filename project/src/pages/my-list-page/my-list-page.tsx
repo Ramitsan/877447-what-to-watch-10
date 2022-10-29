@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../components/logo/logo';
+import CardList from '../../components/card-list/card-list';
+import { Film } from '../../types/film';
 
-export default function MyLIstPage(): JSX.Element {
+type myListPageProps = {
+  cardsCount: number;
+  films: Film[];
+}
+
+export default function MyListPage({cardsCount, films} : myListPageProps): JSX.Element {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -23,7 +30,7 @@ export default function MyLIstPage(): JSX.Element {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <div className="catalog__films-list">
+        {/* <div className="catalog__films-list">
           <article className="small-film-card catalog__films-card">
             <div className="small-film-card__image">
               <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
@@ -106,7 +113,9 @@ export default function MyLIstPage(): JSX.Element {
               <Link className="small-film-card__link" to="film-page.html">Shutter Island</Link>
             </h3>
           </article>
-        </div>
+        </div> */}
+
+        <CardList cardCount={cardsCount} films={films} />
       </section>
 
       <footer className="page-footer">

@@ -7,13 +7,14 @@ type FilmCardProps = {
 }
 
 export default function FilmCard({key, film} : FilmCardProps): JSX.Element {
+  const {previewImage, name} = film;
   return (
     <article key={key} className="small-film-card catalog__films-card">
       <div className="small-film-card__image">
-        <img src={film.previewImage} alt={film.name} width="280" height="175" />
+        <img src={previewImage} alt={name} width="280" height="175" />
       </div>
       <h3 className="small-film-card__title">
-        <Link className="small-film-card__link" to="film-page.html">{film.name}</Link>
+        <Link className="small-film-card__link" to="film-page.html">{name}</Link>
       </h3>
     </article>
   );

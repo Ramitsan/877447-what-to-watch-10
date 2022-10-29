@@ -4,7 +4,7 @@ import NotFound from '../../pages/404-page/404-page';
 import AddReviewPage from '../../pages/add-review-page/add-review-page';
 import MainPage from '../../pages/main-page/main-page';
 import MoviePage from '../../pages/movie-page/movie-page';
-import MyLIstPage from '../../pages/my-list-page/my-list-page';
+import MyListPage from '../../pages/my-list-page/my-list-page';
 import PlayerPage from '../../pages/playerPage/playerPage';
 import SignInPage from '../../pages/sign-in-page/sign-in-page';
 import PrivateRoute from '../private-route/private-route';
@@ -40,8 +40,8 @@ export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFi
         <Route
           path={AppRoute.MyList}
           element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <MyLIstPage />
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+              <MyListPage cardsCount={cardCount} films={films} />
             </ PrivateRoute>
           }
         />
