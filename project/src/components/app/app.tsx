@@ -5,7 +5,7 @@ import AddReviewPage from '../../pages/add-review-page/add-review-page';
 import MainPage from '../../pages/main-page/main-page';
 import MoviePage from '../../pages/movie-page/movie-page';
 import MyListPage from '../../pages/my-list-page/my-list-page';
-import PlayerPage from '../../pages/playerPage/playerPage';
+import PlayerPage from '../../pages/player-page/playerPage';
 import SignInPage from '../../pages/sign-in-page/sign-in-page';
 import PrivateRoute from '../private-route/private-route';
 import { Film } from '../../types/film';
