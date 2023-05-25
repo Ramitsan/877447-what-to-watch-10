@@ -17,7 +17,7 @@ export default function FilmCard({key, film, onMouseOver, onMouseLeave} : FilmCa
         <img src={previewImage} alt={name} width="280" height="175" />
       </div>
       <h3 className="small-film-card__title">
-        <Link className="small-film-card__link" to="film-page.html">{name}</Link>
+        <Link className="small-film-card__link" to={`/films/${film.id}/overview`}>{name}</Link>
       </h3>
     </article>
   );

@@ -1,7 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Logo from '../../components/logo/logo';
+import { films } from '../../mocks/films';
+
+function Overview() {
+  return <div>Overview</div>;
+}
+
+function Details() {
+  return <div>Details</div>;
+}
+
+function Reviews() {
+  return <div>Reviews</div>;
+}
 
 export default function MoviePage(): JSX.Element {
+  const { id, tab } = useParams();
+  const film = films.find((it) => it.id === Number(id));
+
+  const tabRoutes = {
+    overview: Overview,
+    details: Details,
+    reviews: Reviews
+  };
+
+  const TabComponent = tab !== undefined ? tabRoutes[tab as keyof typeof tabRoutes] : Overview;
+
   return (
     <>
       <section className="film-card film-card--full">
@@ -28,7 +52,7 @@ export default function MoviePage(): JSX.Element {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{film?.name}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">Drama</span>
                 <span className="film-card__year">2014</span>
@@ -64,16 +88,18 @@ export default function MoviePage(): JSX.Element {
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
-                    <Link to="#" className="film-nav__link">Overview</Link>
+                    <Link to={`/films/${id}/overview`} className="film-nav__link">Overview</Link>
                   </li>
                   <li className="film-nav__item">
-                    <Link to="#" className="film-nav__link">Details</Link>
+                    <Link to={`/films/${id}/details`} className="film-nav__link">Details</Link>
                   </li>
                   <li className="film-nav__item">
-                    <Link to="#" className="film-nav__link">Reviews</Link>
+                    <Link to={`/films/${id}/reviews`} className="film-nav__link">Reviews</Link>
                   </li>
                 </ul>
               </nav>
+
+              <TabComponent />
 
               <div className="film-rating">
                 <div className="film-rating__score">8,9</div>
