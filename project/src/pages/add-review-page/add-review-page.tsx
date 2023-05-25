@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../components/logo/logo';
-import AddReviewForm from '../../components/add-review-form/add-review-form';
+import AddReviewForm from '../../components/review-form/review-form';
 
 export default function AddReviewPage(): JSX.Element {
   return (
