@@ -1,30 +1,21 @@
 import { Link, useParams } from 'react-router-dom';
 import Logo from '../../components/logo/logo';
+import TabOverview from '../../components/tab-overview/tab-overview';
+import TabDetails from '../../components/tab-details/tab-details';
+import TabReviews from '../../components/tab-reviews/tab-reviews';
 import { films } from '../../mocks/films';
-
-function Overview() {
-  return <div>Overview</div>;
-}
-
-function Details() {
-  return <div>Details</div>;
-}
-
-function Reviews() {
-  return <div>Reviews</div>;
-}
 
 export default function MoviePage(): JSX.Element {
   const { id, tab } = useParams();
   const film = films.find((it) => it.id === Number(id));
 
   const tabRoutes = {
-    overview: Overview,
-    details: Details,
-    reviews: Reviews
+    overview: TabOverview,
+    details: TabDetails,
+    reviews: TabReviews
   };
 
-  const TabComponent = tab !== undefined ? tabRoutes[tab as keyof typeof tabRoutes] : Overview;
+  const TabComponent = tab !== undefined ? tabRoutes[tab as keyof typeof tabRoutes] : TabOverview;
 
   return (
     <>
@@ -101,23 +92,6 @@ export default function MoviePage(): JSX.Element {
 
               <TabComponent />
 
-              <div className="film-rating">
-                <div className="film-rating__score">8,9</div>
-                <p className="film-rating__meta">
-                  <span className="film-rating__level">Very good</span>
-                  <span className="film-rating__count">240 ratings</span>
-                </p>
-              </div>
-
-              <div className="film-card__text">
-                <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.</p>
-
-                <p>Gustave prides himself on providing first-class service to the hotel&apos;s guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.</p>
-
-                <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
-
-                <p className="film-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other</strong></p>
-              </div>
             </div>
           </div>
         </div>
