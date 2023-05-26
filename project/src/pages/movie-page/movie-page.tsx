@@ -1,13 +1,28 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Logo from '../../components/logo/logo';
+import TabOverview from '../../components/tab-overview/tab-overview';
+import TabDetails from '../../components/tab-details/tab-details';
+import TabReviews from '../../components/tab-reviews/tab-reviews';
+import { films } from '../../mocks/films';
 
 export default function MoviePage(): JSX.Element {
+  const { id, tab } = useParams();
+  const film = films.find((it) => it.id === Number(id));
+
+  const tabRoutes = {
+    overview: TabOverview,
+    details: TabDetails,
+    reviews: TabReviews
+  };
+
+  const TabComponent = tab !== undefined ? tabRoutes[tab as keyof typeof tabRoutes] : TabOverview;
+
   return (
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+            <img src={film?.backgroundImage} alt="The Grand Budapest Hotel" />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -28,10 +43,10 @@ export default function MoviePage(): JSX.Element {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{film?.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
+                <span className="film-card__genre">{film?.genre}</span>
+                <span className="film-card__year">{film?.released}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -48,7 +63,7 @@ export default function MoviePage(): JSX.Element {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <Link to="add-review.html" className="btn film-card__button">Add review</Link>
+                <Link to={`/films/${id}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -57,41 +72,26 @@ export default function MoviePage(): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={film?.posterImage} alt={`${film?.name} poster`} width="218" height="327" />
             </div>
 
             <div className="film-card__desc">
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
-                    <Link to="#" className="film-nav__link">Overview</Link>
+                    <Link to={`/films/${id}/overview`} className="film-nav__link">Overview</Link>
                   </li>
                   <li className="film-nav__item">
-                    <Link to="#" className="film-nav__link">Details</Link>
+                    <Link to={`/films/${id}/details`} className="film-nav__link">Details</Link>
                   </li>
                   <li className="film-nav__item">
-                    <Link to="#" className="film-nav__link">Reviews</Link>
+                    <Link to={`/films/${id}/reviews`} className="film-nav__link">Reviews</Link>
                   </li>
                 </ul>
               </nav>
 
-              <div className="film-rating">
-                <div className="film-rating__score">8,9</div>
-                <p className="film-rating__meta">
-                  <span className="film-rating__level">Very good</span>
-                  <span className="film-rating__count">240 ratings</span>
-                </p>
-              </div>
+              <TabComponent film={film}/>
 
-              <div className="film-card__text">
-                <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.</p>
-
-                <p>Gustave prides himself on providing first-class service to the hotel&apos;s guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.</p>
-
-                <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
-
-                <p className="film-card__starring"><strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe and other</strong></p>
-              </div>
             </div>
           </div>
         </div>

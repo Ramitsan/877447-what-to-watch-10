@@ -1,0 +1,49 @@
+import NotFound from '../../pages/404-page/404-page';
+import { Film } from '../../types/film';
+
+type TabDetailsProps = {
+  film?: Film;
+}
+
+export default function TabDetails({film} : TabDetailsProps): JSX.Element {
+  if (!film) {
+    return (
+      <NotFound />
+    );
+  }
+
+  const {director, starring, runTime, genre, released} = film;
+  const actors = starring.map((it, index) => index === starring.length - 1 ? `${it}` : <>{`${it}, `}<br /></>);
+
+  return (
+    <div className="film-card__text film-card__row">
+      <div className="film-card__text-col">
+        <p className="film-card__details-item">
+          <strong className="film-card__details-name">Director</strong>
+          <span className="film-card__details-value">{director}</span>
+        </p>
+        <p className="film-card__details-item">
+          <strong className="film-card__details-name">Starring</strong>
+          <span className="film-card__details-value">
+            {actors}
+          </span>
+        </p>
+      </div>
+
+      <div className="film-card__text-col">
+        <p className="film-card__details-item">
+          <strong className="film-card__details-name">Run Time</strong>
+          <span className="film-card__details-value">{runTime}</span>
+        </p>
+        <p className="film-card__details-item">
+          <strong className="film-card__details-name">Genre</strong>
+          <span className="film-card__details-value">{genre}</span>
+        </p>
+        <p className="film-card__details-item">
+          <strong className="film-card__details-name">Released</strong>
+          <span className="film-card__details-value">{released}</span>
+        </p>
+      </div>
+    </div>
+  );
+}
