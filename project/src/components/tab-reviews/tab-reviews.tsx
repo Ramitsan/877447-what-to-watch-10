@@ -1,7 +1,10 @@
+import CommentsList from '../comments-list/comments-list';
+import {reviews} from '../../mocks/reviews';
+
 export default function TabReviews(): JSX.Element {
   return (
     <div className="film-card__reviews film-card__row">
-      <div className="film-card__reviews-col">
+      {/* <div className="film-card__reviews-col">
         <div className="review">
           <blockquote className="review__quote">
             <p className="review__text">Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director&apos;s funniest and most exquisitely designed films in years.</p>
@@ -80,7 +83,9 @@ export default function TabReviews(): JSX.Element {
 
           <div className="review__rating">7,0</div>
         </div>
-      </div>
+      </div> */}
+
+      <CommentsList reviews={reviews}/>
     </div>
   );
 }
