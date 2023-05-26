@@ -35,7 +35,7 @@ function StarInputsList({ onChange, initialValue }: IStarInputsListProps): JSX.E
       <StarInput key={`input${value}`} id={id} value={value} initialValue={initialValue} onChange={onChange} />
     );
   });
-  
+
   return (
     <div className="rating__stars">
       {stars}

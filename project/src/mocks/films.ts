@@ -44,7 +44,7 @@ export const films: Film[] = [
     name: 'The Grand Budapest Hotel',
     posterImage: 'img/the-grand-budapest-hotel-poster.jpg',
     previewImage: 'img/the-grand-budapest-hotel-poster.jpg',
-    backgroundImage: 'img/the-grand-budapest-hotel-bg.jpg',
+    backgroundImage: 'img/bg-the-grand-budapest-hotel.jpg',
     backgroundColor: '#ffffff',
     videoLink: 'https://www.imdb.com/video/vi1157933593/?playlistId=tt2278388&ref_=tt_ov_vi',
     previewVideoLink: 'https://www.imdb.com/title/tt2278388/?ref_=nv_sr_srsg_0',
