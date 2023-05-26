@@ -9,7 +9,7 @@ export const films: Film[] = [
     backgroundImage: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
     backgroundColor: '#ffffff',
     videoLink: 'https://www.imdb.com/video/vi965130777/?playlistId=tt4123430&ref_=tt_pr_ov_vi',
-    previewVideoLink: 'https://www.imdb.com/title/tt4123430/',
+    previewVideoLink: 'https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4',
     description: 'Fantastic Beasts: The Crimes of Grindelwald is a 2018 fantasy film directed by David Yates and written by J. K. Rowling. The sequel to Fantastic Beasts and Where to Find Them (2016), it is the second instalment in the Fantastic Beasts film series and the tenth overall in the Wizarding World franchise.',
     rating: 9.1,
     scoresCount: 500,

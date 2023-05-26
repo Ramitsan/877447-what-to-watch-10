@@ -14,7 +14,7 @@ export default function CardList({ cardCount, films }: cardListProps): JSX.Eleme
     <div className="catalog__films-list">
       {films.map((film, index) => (
         <FilmCard key={film.id} film={film}
-          onMouseOver={() => {
+          onMouseEnter={() => {
             if (selected !== index) {
               setSelected(index);
             }
