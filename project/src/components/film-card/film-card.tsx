@@ -40,7 +40,7 @@ export default function FilmCard({ key, film, onMouseEnter, onMouseLeave }: Film
     }} className="small-film-card catalog__films-card"
     >
       {isPlay && <video style={{ width: '100%', height: 'auto', top: '0', left: '0' }} src={previewVideoLink} ref={preview} onClick={() => { preview.current?.play(); }} muted></video>}
-     
+
       {!isPlay &&
         <>
           <div className="small-film-card__image">
