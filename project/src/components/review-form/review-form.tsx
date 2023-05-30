@@ -1,13 +1,13 @@
 import { ChangeEvent, useState } from 'react';
 
-type IStarInputProps = {
+type StarInputProps = {
   value: number;
   id: string;
   onChange: (value: number) => void;
   initialValue: number;
 }
 
-function StarInput({ value, id, onChange, initialValue }: IStarInputProps): JSX.Element {
+function StarInput({ value, id, onChange, initialValue }: StarInputProps): JSX.Element {
   return (
     <>
       <input onChange={(e) => {
@@ -22,12 +22,12 @@ function StarInput({ value, id, onChange, initialValue }: IStarInputProps): JSX.
   );
 }
 
-type IStarInputsListProps = {
+type StarInputsListProps = {
   onChange: (value: number) => void;
   initialValue: number;
 }
 
-function StarInputsList({ onChange, initialValue }: IStarInputsListProps): JSX.Element {
+function StarInputsList({ onChange, initialValue }: StarInputsListProps): JSX.Element {
   const starsValues = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
   const stars = starsValues.map((value) => {
     const id = `star-${value}`;
