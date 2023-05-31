@@ -14,7 +14,6 @@ export default function TabDetails({film} : TabDetailsProps): JSX.Element {
 
   const {director, starring, runTime, genre, released} = film;
   const actors = starring.map((it, index) => index === starring.length - 1 ? `${it}` : <>{`${it}, `}<br /></>);
-  
   const hours = Math.floor(runTime / 60);
   const minutes = runTime % 60;
   const filmDuration = hours >= 1 ? `${hours}h ${minutes}m` : `${minutes}m`;
