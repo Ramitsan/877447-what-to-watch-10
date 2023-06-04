@@ -14,6 +14,9 @@ export default function TabDetails({film} : TabDetailsProps): JSX.Element {
 
   const {director, starring, runTime, genre, released} = film;
   const actors = starring.map((it, index) => index === starring.length - 1 ? `${it}` : <>{`${it}, `}<br /></>);
+  const hours = Math.floor(runTime / 60);
+  const minutes = runTime % 60;
+  const filmDuration = hours >= 1 ? `${hours}h ${minutes}m` : `${minutes}m`;
 
   return (
     <div className="film-card__text film-card__row">
@@ -33,7 +36,7 @@ export default function TabDetails({film} : TabDetailsProps): JSX.Element {
       <div className="film-card__text-col">
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Run Time</strong>
-          <span className="film-card__details-value">{runTime}</span>
+          <span className="film-card__details-value">{filmDuration}</span>
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Genre</strong>

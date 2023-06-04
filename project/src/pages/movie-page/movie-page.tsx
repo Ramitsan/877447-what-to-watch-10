@@ -4,6 +4,7 @@ import TabOverview from '../../components/tab-overview/tab-overview';
 import TabDetails from '../../components/tab-details/tab-details';
 import TabReviews from '../../components/tab-reviews/tab-reviews';
 import { films } from '../../mocks/films';
+import SimilarFilms from '../../components/similar-films/similar-films';
 
 export default function MoviePage(): JSX.Element {
   const { id, tab } = useParams();
@@ -24,7 +25,6 @@ export default function MoviePage(): JSX.Element {
           <div className="film-card__bg">
             <img src={film?.backgroundImage} alt="The Grand Budapest Hotel" />
           </div>
-
           <h1 className="visually-hidden">WTW</h1>
 
           <header className="page-header film-card__head">
@@ -101,7 +101,7 @@ export default function MoviePage(): JSX.Element {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <div className="catalog__films-list">
+          {/* <div className="catalog__films-list">
             <article className="small-film-card catalog__films-card">
               <div className="small-film-card__image">
                 <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
@@ -137,8 +137,11 @@ export default function MoviePage(): JSX.Element {
                 <Link className="small-film-card__link" to="film-page.html">Aviator</Link>
               </h3>
             </article>
-          </div>
+          </div> */}
+
+          <SimilarFilms id={Number(id)} films={films} />
         </section>
+
 
         <footer className="page-footer">
           <div className="logo">

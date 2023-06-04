@@ -16,7 +16,7 @@ export const films: Film[] = [
     director: 'David Yates',
     starring: ['Eddie Redmayne', 'Katherine Waterston', 'Dan Fogler'],
     runTime: 134,
-    genre: 'fantasy',
+    genre: 'Drama',
     released: 2018,
     isFavorite: true
   },
@@ -35,7 +35,7 @@ export const films: Film[] = [
     director: 'Bryan Singer',
     starring: ['Rami Malek', 'Lucy Boynton', 'Gwilym Lee'],
     runTime: 134,
-    genre: 'biography',
+    genre: 'Drama',
     released: 2018,
     isFavorite: true
   },
@@ -54,7 +54,7 @@ export const films: Film[] = [
     director: 'Wes Anderson',
     starring: ['Ralph Fiennes', 'F. Murray Abraham', 'Mathieu Amalric'],
     runTime: 99,
-    genre: 'Comedy',
+    genre: 'Drama',
     released: 2014,
     isFavorite: false
   },
@@ -92,7 +92,7 @@ export const films: Film[] = [
     director: 'Martin Scorsese',
     starring: ['Leonardo DiCaprio', 'Cate Blanchett', 'Kate Beckinsale'],
     runTime: 120,
-    genre: 'Biography',
+    genre: 'Drama',
     released: 2004,
     isFavorite: true
   },
@@ -111,7 +111,7 @@ export const films: Film[] = [
     director: 'Lynne Ramsay',
     starring: ['Tilda Swinton', 'John C. Reilly', 'Ezra Miller'],
     runTime: 112,
-    genre: 'Thriller',
+    genre: 'Drama',
     released: 2011,
     isFavorite: false
   },
@@ -130,7 +130,7 @@ export const films: Film[] = [
     director: 'Joanne Toll',
     starring: ['Kayvan Novak', 'Matt Berry', 'Natasia Demetriou'],
     runTime: 150,
-    genre: 'Comedy horror',
+    genre: 'Comedy',
     released: 2019,
     isFavorite: false
   },

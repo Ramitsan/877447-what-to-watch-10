@@ -13,7 +13,7 @@ export default function FilmCard({ key, film, onMouseEnter, onMouseLeave }: Film
   const [selected, setSelected] = useState<boolean>(false);
   const [isPlay, setIsPlay] = useState(false);
   const { previewImage, name, previewVideoLink } = film;
-  const preview = useRef<HTMLVideoElement>(null);
+  const preview = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     if (selected) {
@@ -27,8 +27,11 @@ export default function FilmCard({ key, film, onMouseEnter, onMouseLeave }: Film
   }, [selected]);
 
   useEffect(() => {
+    if(preview.current === null) {
+      return;
+    }
     if (isPlay) {
-      preview.current?.play();
+      preview.current.play();
     }
   }, [isPlay]);
 
@@ -40,7 +43,7 @@ export default function FilmCard({ key, film, onMouseEnter, onMouseLeave }: Film
     }} className="small-film-card catalog__films-card"
     >
       {isPlay && <video style={{ width: '100%', height: 'auto', top: '0', left: '0' }} src={previewVideoLink} ref={preview} onClick={() => { preview.current?.play(); }} muted></video>}
-     
+
       {!isPlay &&
         <>
           <div className="small-film-card__image">
