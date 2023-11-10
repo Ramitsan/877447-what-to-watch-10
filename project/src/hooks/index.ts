@@ -1,4 +1,4 @@
-import { useSelector, useDispatch, TypedUseSelectorHook } from "react-redux";
+import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
 import { State, AppDispatch } from '../types/state';
 
 // Файл для типизации хуков

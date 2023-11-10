@@ -16,9 +16,10 @@ type AppProps = {
   promoFilmGenre: string;
   promoFilmDate: string;
   films: FilmType[];
+  genres: string[];
 }
 
-export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films }: AppProps): JSX.Element {
+export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres }: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -30,6 +31,7 @@ export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFi
               promoFilmGenre={promoFilmGenre}
               promoFilmDate={promoFilmDate}
               films={films}
+              genres={genres}
             />
           }
         />

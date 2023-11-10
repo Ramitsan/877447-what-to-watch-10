@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../components/logo/logo';
 import CardList from '../../components/card-list/card-list';
 import { FilmType } from '../../types/film';
+import GenreList from '../../components/genre-list/genre-list';
 
 type mainPageProps = {
   cardCount: number;
@@ -9,9 +10,10 @@ type mainPageProps = {
   promoFilmGenre: string;
   promoFilmDate: string;
   films: FilmType[];
+  genres: string[];
 }
 
-export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films }: mainPageProps): JSX.Element {
+export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres }: mainPageProps): JSX.Element {
   return (
     <>
       <section className="film-card">
@@ -71,39 +73,7 @@ export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, pr
       <div className="page-content">
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
-
-          <ul className="catalog__genres-list">
-            <li className="catalog__genres-item catalog__genres-item--active">
-              <Link to="#" className="catalog__genres-link">All genres</Link>
-            </li>
-            <li className="catalog__genres-item">
-              <Link to="#" className="catalog__genres-link">Comedies</Link>
-            </li>
-            <li className="catalog__genres-item">
-              <Link to="#" className="catalog__genres-link">Crime</Link>
-            </li>
-            <li className="catalog__genres-item">
-              <Link to="#" className="catalog__genres-link">Documentary</Link>
-            </li>
-            <li className="catalog__genres-item">
-              <Link to="#" className="catalog__genres-link">Dramas</Link>
-            </li>
-            <li className="catalog__genres-item">
-              <Link to="#" className="catalog__genres-link">Horror</Link>
-            </li>
-            <li className="catalog__genres-item">
-              <Link to="#" className="catalog__genres-link">Kids & Family</Link>
-            </li>
-            <li className="catalog__genres-item">
-              <Link to="#" className="catalog__genres-link">Romance</Link>
-            </li>
-            <li className="catalog__genres-item">
-              <Link to="#" className="catalog__genres-link">Sci-Fi</Link>
-            </li>
-            <li className="catalog__genres-item">
-              <Link to="#" className="catalog__genres-link">Thrillers</Link>
-            </li>
-          </ul>
+          <GenreList genres={genres}/>          
           <CardList cardCount={cardCount} films={films} />
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

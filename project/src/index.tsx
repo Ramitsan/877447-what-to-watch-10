@@ -5,6 +5,7 @@ import { films } from './mocks/films';
 
 import { Provider } from 'react-redux';
 import { store } from './store';
+import { genres } from './const';
 
 const Setting = {
   CARDS_COUNT: 20,
@@ -28,6 +29,7 @@ root.render(
         promoFilmGenre={PromoFilmData.genre}
         promoFilmDate={PromoFilmData.date}
         films={films}
+        genres={genres}
       />
     </Provider>
   </React.StrictMode>,

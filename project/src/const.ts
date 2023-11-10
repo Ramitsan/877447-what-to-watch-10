@@ -14,3 +14,4 @@ export enum AuthorizationStatus {
 }
 
 export const DEFAULT_GENRE = 'All genres';
+export const genres = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];
