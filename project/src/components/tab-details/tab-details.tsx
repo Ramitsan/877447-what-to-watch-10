@@ -1,8 +1,8 @@
 import NotFound from '../../pages/404-page/404-page';
-import { Film } from '../../types/film';
+import { FilmType } from '../../types/film';
 
 type TabDetailsProps = {
-  film?: Film;
+  film?: FilmType;
 }
 
 export default function TabDetails({film} : TabDetailsProps): JSX.Element {

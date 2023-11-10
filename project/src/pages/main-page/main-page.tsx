@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../components/logo/logo';
 import CardList from '../../components/card-list/card-list';
-import { Film } from '../../types/film';
+import { FilmType } from '../../types/film';
 
 type mainPageProps = {
   cardCount: number;
   promoFilmTitle: string;
   promoFilmGenre: string;
   promoFilmDate: string;
-  films: Film[];
+  films: FilmType[];
 }
 
 export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films }: mainPageProps): JSX.Element {

@@ -8,14 +8,14 @@ import MyListPage from '../../pages/my-list-page/my-list-page';
 import PlayerPage from '../../pages/player-page/playerPage';
 import SignInPage from '../../pages/sign-in-page/sign-in-page';
 import PrivateRoute from '../private-route/private-route';
-import { Film } from '../../types/film';
+import { FilmType } from '../../types/film';
 
 type AppProps = {
   cardCount: number;
   promoFilmTitle: string;
   promoFilmGenre: string;
   promoFilmDate: string;
-  films: Film[];
+  films: FilmType[];
 }
 
 export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films }: AppProps): JSX.Element {

@@ -1,10 +1,10 @@
 import { MouseEventHandler, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Film } from '../../types/film';
+import { FilmType } from '../../types/film';
 
 type FilmCardProps = {
   key: number;
-  film: Film;
+  film: FilmType;
   onMouseEnter?: MouseEventHandler<HTMLElement> | undefined;
   onMouseLeave?: MouseEventHandler<HTMLElement> | undefined;
 }
