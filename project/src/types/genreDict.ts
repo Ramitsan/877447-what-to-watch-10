@@ -1,0 +1,1 @@
+export type genreDict = {[key: string] : string };

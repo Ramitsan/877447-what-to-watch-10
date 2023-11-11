@@ -3,6 +3,7 @@ import Logo from '../../components/logo/logo';
 import CardList from '../../components/card-list/card-list';
 import { FilmType } from '../../types/film';
 import GenreList from '../../components/genre-list/genre-list';
+import { genreNames } from '../../const';
 
 type mainPageProps = {
   cardCount: number;
@@ -13,29 +14,12 @@ type mainPageProps = {
   genres: string[];
   genre: string;
 }
-type genreDict = {[key: string] : string };
+
 
 export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres, genre }: mainPageProps): JSX.Element {
-
-  const genreNames: genreDict = {
-    'All genres': 'All genres',
-    'Comedies': 'Comedy',
-    'Crime': 'Crime',
-    'Documentary': 'Documentary',
-    'Dramas': 'Drama',
-    'Horror': 'Horror',
-    'Kids & Family': 'Kids & Family',
-    'Romance': 'Romance',
-    'Sci-Fi': 'Sci-Fi',
-    'Thrillers': 'Thriller',
-  };
-
-  let filmsByGenre;
-  if(genre === 'All genres') {
-    filmsByGenre = films.map(((film) => film));
-  } else {
-    filmsByGenre = films.filter((film) => film.genre === genreNames[genre]);
-  }
+  const filmsByGenre = genre === 'All genres' ?
+    films.map((film) => film) :
+    films.filter((film) => film.genre === genreNames[genre]);
 
   return (
     <>
