@@ -1,6 +1,6 @@
-import { Film } from '../types/film';
+import { FilmType } from '../types/film';
 
-export const films: Film[] = [
+export const films: FilmType[] = [
   {
     id: 1,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -16,7 +16,7 @@ export const films: Film[] = [
     director: 'David Yates',
     starring: ['Eddie Redmayne', 'Katherine Waterston', 'Dan Fogler'],
     runTime: 134,
-    genre: 'Drama',
+    genre: 'Horror',
     released: 2018,
     isFavorite: true
   },
@@ -54,7 +54,7 @@ export const films: Film[] = [
     director: 'Wes Anderson',
     starring: ['Ralph Fiennes', 'F. Murray Abraham', 'Mathieu Amalric'],
     runTime: 99,
-    genre: 'Drama',
+    genre: 'Comedy',
     released: 2014,
     isFavorite: false
   },
@@ -92,7 +92,7 @@ export const films: Film[] = [
     director: 'Martin Scorsese',
     starring: ['Leonardo DiCaprio', 'Cate Blanchett', 'Kate Beckinsale'],
     runTime: 120,
-    genre: 'Drama',
+    genre: 'Documentary',
     released: 2004,
     isFavorite: true
   },
@@ -111,7 +111,7 @@ export const films: Film[] = [
     director: 'Lynne Ramsay',
     starring: ['Tilda Swinton', 'John C. Reilly', 'Ezra Miller'],
     runTime: 112,
-    genre: 'Drama',
+    genre: 'Romance',
     released: 2011,
     isFavorite: false
   },
@@ -130,7 +130,7 @@ export const films: Film[] = [
     director: 'Joanne Toll',
     starring: ['Kayvan Novak', 'Matt Berry', 'Natasia Demetriou'],
     runTime: 150,
-    genre: 'Comedy',
+    genre: 'Horror',
     released: 2019,
     isFavorite: false
   },
@@ -149,7 +149,7 @@ export const films: Film[] = [
     director: 'Alejandro G. Iñárritu',
     starring: ['Leonardo DiCaprio', 'Tom Hardy', 'Will Poulter'],
     runTime: 156,
-    genre: 'Drama',
+    genre: 'Thriller',
     released: 2015,
     isFavorite: true
   },

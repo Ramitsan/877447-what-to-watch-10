@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
-import {films} from './mocks/films';
+import { films } from './mocks/films';
+
+import { Provider } from 'react-redux';
+import { store } from './store';
+import { genres } from './const';
 
 const Setting = {
   CARDS_COUNT: 20,
@@ -19,11 +23,14 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App cardCount={Setting.CARDS_COUNT}
-      promoFilmTitle={PromoFilmData.title}
-      promoFilmGenre={PromoFilmData.genre}
-      promoFilmDate={PromoFilmData.date}
-      films={films}
-    />
+    <Provider store={store}>
+      <App cardCount={Setting.CARDS_COUNT}
+        promoFilmTitle={PromoFilmData.title}
+        promoFilmGenre={PromoFilmData.genre}
+        promoFilmDate={PromoFilmData.date}
+        films={films}
+        genres={genres}
+      />
+    </Provider>
   </React.StrictMode>,
 );

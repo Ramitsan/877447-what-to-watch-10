@@ -8,17 +8,21 @@ import MyListPage from '../../pages/my-list-page/my-list-page';
 import PlayerPage from '../../pages/player-page/playerPage';
 import SignInPage from '../../pages/sign-in-page/sign-in-page';
 import PrivateRoute from '../private-route/private-route';
-import { Film } from '../../types/film';
+import { FilmType } from '../../types/film';
+import { useAppSelector } from '../../hooks/index';
 
 type AppProps = {
   cardCount: number;
   promoFilmTitle: string;
   promoFilmGenre: string;
   promoFilmDate: string;
-  films: Film[];
+  films: FilmType[];
+  genres: string[];
 }
 
-export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films }: AppProps): JSX.Element {
+export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres }: AppProps): JSX.Element {
+  const genre = useAppSelector((state) => state.genre);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -30,6 +34,8 @@ export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFi
               promoFilmGenre={promoFilmGenre}
               promoFilmDate={promoFilmDate}
               films={films}
+              genres={genres}
+              genre={genre}
             />
           }
         />

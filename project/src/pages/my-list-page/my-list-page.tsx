@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../components/logo/logo';
 import CardList from '../../components/card-list/card-list';
-import { Film } from '../../types/film';
+import { FilmType } from '../../types/film';
 
 type myListPageProps = {
   cardsCount: number;
-  films: Film[];
+  films: FilmType[];
 }
 
 export default function MyListPage({cardsCount, films} : myListPageProps): JSX.Element {

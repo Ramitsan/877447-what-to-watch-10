@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Film } from '../../types/film';
+import { FilmType } from '../../types/film';
 import FilmCard from '../film-card/film-card';
 
 type cardListProps = {
   cardCount: number;
-  films: Film[];
+  films: FilmType[];
 }
 
 export default function CardList({ cardCount, films }: cardListProps): JSX.Element {
