@@ -9,6 +9,7 @@ import PlayerPage from '../../pages/player-page/playerPage';
 import SignInPage from '../../pages/sign-in-page/sign-in-page';
 import PrivateRoute from '../private-route/private-route';
 import { FilmType } from '../../types/film';
+import { useAppSelector } from '../../hooks/index';
 
 type AppProps = {
   cardCount: number;
@@ -20,6 +21,8 @@ type AppProps = {
 }
 
 export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres }: AppProps): JSX.Element {
+  const genre = useAppSelector((state) => state.genre);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -32,6 +35,7 @@ export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFi
               promoFilmDate={promoFilmDate}
               films={films}
               genres={genres}
+              genre={genre}
             />
           }
         />

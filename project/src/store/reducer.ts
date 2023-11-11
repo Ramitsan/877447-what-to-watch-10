@@ -1,12 +1,12 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { DEFAULT_GENRE } from '../const';
+import { genres } from '../const';
 import { films } from '../mocks/films';
 import { changeGenre, loadFilms } from './actions';
 
 // Объект начального состояния:
 // жанр (используется для фильтров по жанру) и список фильмов
 const initialState = {
-  genre: DEFAULT_GENRE,
+  genre: genres[0],
   movies: films
 };
 

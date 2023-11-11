@@ -11,9 +11,32 @@ type mainPageProps = {
   promoFilmDate: string;
   films: FilmType[];
   genres: string[];
+  genre: string;
 }
+type genreDict = {[key: string] : string };
 
-export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres }: mainPageProps): JSX.Element {
+export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres, genre }: mainPageProps): JSX.Element {
+
+  const genreNames: genreDict = {
+    'All genres': 'All genres',
+    'Comedies': 'Comedy',
+    'Crime': 'Crime',
+    'Documentary': 'Documentary',
+    'Dramas': 'Drama',
+    'Horror': 'Horror',
+    'Kids & Family': 'Kids & Family',
+    'Romance': 'Romance',
+    'Sci-Fi': 'Sci-Fi',
+    'Thrillers': 'Thriller',
+  };
+
+  let filmsByGenre;
+  if(genre === 'All genres') {
+    filmsByGenre = films.map(((film) => film));
+  } else {
+    filmsByGenre = films.filter((film) => film.genre === genreNames[genre]);
+  }
+
   return (
     <>
       <section className="film-card">
@@ -73,8 +96,8 @@ export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, pr
       <div className="page-content">
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
-          <GenreList genres={genres}/>          
-          <CardList cardCount={cardCount} films={films} />
+          <GenreList genres={genres} />
+          <CardList cardCount={cardCount} films={filmsByGenre} />
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
           </div>
