@@ -4,8 +4,10 @@ import CardList from '../../components/card-list/card-list';
 import { FilmType } from '../../types/film';
 import GenreList from '../../components/genre-list/genre-list';
 import { genreNames } from '../../const';
+import ShowMoreButton from '../../components/show-more-button/show-more-button';
+import { useEffect, useState } from 'react';
 
-type mainPageProps = {
+type MainPageProps = {
   cardCount: number;
   promoFilmTitle: string;
   promoFilmGenre: string;
@@ -15,11 +17,22 @@ type mainPageProps = {
   genre: string;
 }
 
+export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres, genre }: MainPageProps): JSX.Element {
+  const [filmsByGenre, setFilmsByGenre] = useState<Array<FilmType>>([]);
+  const [renderedCardsCount, setRenderedCardsCount] = useState(0);
 
-export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres, genre }: mainPageProps): JSX.Element {
-  const filmsByGenre = genre === 'All genres' ?
-    films.map((film) => film) :
-    films.filter((film) => film.genre === genreNames[genre]);
+  const cardCountPerStep = 8;
+  useEffect(() => {
+    const filteredFilms = genre === 'All genres' ?
+      films.map((film) => film) :
+      films.filter((film) => film.genre === genreNames[genre]);
+
+    setFilmsByGenre(filteredFilms);
+    setRenderedCardsCount(cardCountPerStep);
+  }, [genre, films]);
+
+  const filmsByGenreCount = filmsByGenre.length;
+  const renderedCards = filmsByGenre.slice(0, Math.min(filmsByGenreCount, renderedCardsCount));
 
   return (
     <>
@@ -81,10 +94,13 @@ export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, pr
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
           <GenreList genres={genres} />
-          <CardList cardCount={cardCount} films={filmsByGenre} />
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <CardList cardCount={cardCount} films={renderedCards} />
+          {filmsByGenreCount > renderedCards.length ?
+            <ShowMoreButton onShowMore={() => {
+              setRenderedCardsCount((last) => last + cardCountPerStep);
+            }}
+            />
+            : ''}
         </section>
 
         <footer className="page-footer">
