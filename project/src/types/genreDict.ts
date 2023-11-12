@@ -1,1 +1,1 @@
-export type genreDict = {[key: string] : string };
+export type GenreDict = {[key: string] : string };

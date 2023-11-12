@@ -1,4 +1,4 @@
-import { genreDict } from './types/genreDict';
+import { GenreDict } from './types/genreDict';
 
 export enum AppRoute {
   Main = '/',
@@ -15,7 +15,7 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export const genreNames: genreDict = {
+export const genreNames: GenreDict = {
   'All genres': 'All genres',
   'Comedies': 'Comedy',
   'Crime': 'Crime',
@@ -28,5 +28,4 @@ export const genreNames: genreDict = {
   'Thrillers': 'Thriller',
 };
 
-export const DEFAULT_GENRE = 'All genres';
 export const genres = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];
