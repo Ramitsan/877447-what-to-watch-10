@@ -8,7 +8,6 @@ import MyListPage from '../../pages/my-list-page/my-list-page';
 import PlayerPage from '../../pages/player-page/playerPage';
 import SignInPage from '../../pages/sign-in-page/sign-in-page';
 import PrivateRoute from '../private-route/private-route';
-import { FilmType } from '../../types/film';
 import { useAppSelector } from '../../hooks/index';
 
 type AppProps = {
@@ -16,12 +15,12 @@ type AppProps = {
   promoFilmTitle: string;
   promoFilmGenre: string;
   promoFilmDate: string;
-  films: FilmType[];
   genres: string[];
 }
 
-export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, films, genres }: AppProps): JSX.Element {
+export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFilmDate, genres }: AppProps): JSX.Element {
   const genre = useAppSelector((state) => state.genre);
+  const films = useAppSelector((state) => state.movies);
 
   return (
     <BrowserRouter>
