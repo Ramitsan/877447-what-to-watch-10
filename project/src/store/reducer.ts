@@ -1,20 +1,20 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { genres } from '../const';
-// import { films } from '../mocks/films';
-import { changeGenre, loadFilms } from './actions';
+import { changeGenre, loadFilms, setDataLoadedStatus } from './actions';
 import { FilmType } from '../types/film';
 
 type InitialStateType = {
   genre: string,
-  movies: FilmType[]
+  movies: FilmType[],
+  isDataLoaded: boolean
 }
 
 // Объект начального состояния:
 // жанр (используется для фильтров по жанру) и список фильмов
 const initialState: InitialStateType = {
   genre: genres[0],
-  // movies: films
-  movies: []
+  movies: [],
+  isDataLoaded: false
 };
 
 //Функцию-редьюсер. Она принимает в качестве параметров текущий state и действие (action).
@@ -28,5 +28,8 @@ export const reducer = createReducer(initialState, (builder) => {
     .addCase(loadFilms, (state, action) => {
       const { movies } = action.payload;
       state.movies = movies;
+    })
+    .addCase(setDataLoadedStatus, (state, action) => {
+      state.isDataLoaded = action.payload;
     });
 });
