@@ -30,6 +30,8 @@ export const genreNames: GenreDict = {
 
 export const enum APIRoute {
   Films = '/films',
+  Login = '/login',
+  Logout = '/logout'
 }
 
 export const genres = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];
