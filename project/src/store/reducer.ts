@@ -7,11 +7,11 @@ type InitialStateType = {
   genre: string,
   movies: FilmType[],
   isDataLoaded: boolean,
-  authorizationStatus: AuthorizationStatus ///??
+  authorizationStatus: AuthorizationStatus
 }
 
 // Объект начального состояния:
-// жанр (используется для фильтров по жанру), 
+// жанр (используется для фильтров по жанру),
 // список фильмов, загрузка данных, статус авторизации
 const initialState: InitialStateType = {
   genre: genres[0],
