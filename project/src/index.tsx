@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import { genres } from './const';
 import { fetchFilmsAction } from './store/api-actions';
+// import '../../server/test';
 
 const Setting = {
   CARDS_COUNT: 20,
