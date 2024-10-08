@@ -3,11 +3,12 @@ import Logo from '../../components/logo/logo';
 import TabOverview from '../../components/tab-overview/tab-overview';
 import TabDetails from '../../components/tab-details/tab-details';
 import TabReviews from '../../components/tab-reviews/tab-reviews';
-import { films } from '../../mocks/films';
 import SimilarFilms from '../../components/similar-films/similar-films';
+import { useAppSelector } from '../../hooks';
 
 export default function MoviePage(): JSX.Element {
   const { id, tab } = useParams();
+  const films = useAppSelector((state) => state.movies);
   const film = films.find((it) => it.id === Number(id));
 
   const tabRoutes = {

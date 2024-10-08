@@ -42,7 +42,7 @@ export default function MainPage({ cardCount, promoFilmTitle, promoFilmGenre, pr
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
-        
+
         <Header />
 
         <div className="film-card__wrap">

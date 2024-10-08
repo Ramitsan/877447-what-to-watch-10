@@ -30,7 +30,7 @@ export default function App({ cardCount, promoFilmTitle, promoFilmGenre, promoFi
   useEffect(() => {
     // checkAuthAction - действие для проверки наличия авторизации
     dispatch(checkAuthAction());
-  }, []);
+  }, [dispatch]);
 
   return (
     <BrowserRouter>
