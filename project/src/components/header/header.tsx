@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import Logo from '../logo/logo';
-import { useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { AppRoute, AuthorizationStatus } from '../../const';
+import { logoutAction } from '../../store/api-actions';
 
 export default function Header(): JSX.Element {
+  const dispatch = useAppDispatch();
+
   const authStatus = useAppSelector((state) => state.authorizationStatus);
   return (
     <header className="page-header film-card__head">
@@ -16,7 +19,7 @@ export default function Header(): JSX.Element {
             </div>
           </li>
           <li className="user-block__item">
-            <Link to="/#" className="user-block__link">Sign out</Link>
+            <Link to="/#" className="user-block__link" onClick={() => dispatch(logoutAction())}>Sign out</Link>
           </li>
         </ul>
         :
