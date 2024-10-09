@@ -1,10 +1,10 @@
 import { Link, useParams } from 'react-router-dom';
-import Logo from '../../components/logo/logo';
 import TabOverview from '../../components/tab-overview/tab-overview';
 import TabDetails from '../../components/tab-details/tab-details';
 import TabReviews from '../../components/tab-reviews/tab-reviews';
 import SimilarFilms from '../../components/similar-films/similar-films';
 import { useAppSelector } from '../../hooks';
+import Header from '../../components/header/header';
 
 export default function MoviePage(): JSX.Element {
   const { id, tab } = useParams();
@@ -24,24 +24,10 @@ export default function MoviePage(): JSX.Element {
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src={film?.backgroundImage} alt="The Grand Budapest Hotel" />
+            <img src={film?.backgroundImage} alt={film?.name} />
           </div>
           <h1 className="visually-hidden">WTW</h1>
-
-          <header className="page-header film-card__head">
-            <Logo />
-            <ul className="user-block">
-              <li className="user-block__item">
-                <div className="user-block__avatar">
-                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-                </div>
-              </li>
-              <li className="user-block__item">
-                <Link to="#" className="user-block__link">Sign out</Link>
-              </li>
-            </ul>
-          </header>
-
+          <Header />
           <div className="film-card__wrap">
             <div className="film-card__desc">
               <h2 className="film-card__title">{film?.name}</h2>
@@ -91,7 +77,7 @@ export default function MoviePage(): JSX.Element {
                 </ul>
               </nav>
 
-              <TabComponent film={film}/>
+              <TabComponent film={film} />
 
             </div>
           </div>
@@ -101,45 +87,6 @@ export default function MoviePage(): JSX.Element {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-
-          {/* <div className="catalog__films-list">
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <Link className="small-film-card__link" to="film-page.html">Fantastic Beasts: The Crimes of Grindelwald</Link>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <Link className="small-film-card__link" to="film-page.html">Bohemian Rhapsody</Link>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <Link className="small-film-card__link" to="film-page.html">Macbeth</Link>
-              </h3>
-            </article>
-
-            <article className="small-film-card catalog__films-card">
-              <div className="small-film-card__image">
-                <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
-              </div>
-              <h3 className="small-film-card__title">
-                <Link className="small-film-card__link" to="film-page.html">Aviator</Link>
-              </h3>
-            </article>
-          </div> */}
-
           <SimilarFilms id={Number(id)} films={films} />
         </section>
 
