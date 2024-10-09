@@ -19,7 +19,10 @@ export default function Header(): JSX.Element {
             </div>
           </li>
           <li className="user-block__item">
-            <Link to="/#" className="user-block__link" onClick={() => dispatch(logoutAction())}>Sign out</Link>
+            <Link to={AppRoute.Main} className="user-block__link" onClick={(evt) => {
+              evt.preventDefault();
+              dispatch(logoutAction());
+            }}>Sign out</Link>
           </li>
         </ul>
         :
