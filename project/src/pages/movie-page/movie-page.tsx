@@ -18,6 +18,8 @@ export default function MoviePage(): JSX.Element {
     reviews: TabReviews
   };
 
+  const tabTitles = Object.keys(tabRoutes);
+
   const TabComponent = tab !== undefined ? tabRoutes[tab as keyof typeof tabRoutes] : TabOverview;
 
   return (
@@ -66,19 +68,15 @@ export default function MoviePage(): JSX.Element {
             <div className="film-card__desc">
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
-                  <li className="film-nav__item film-nav__item--active">
-                    <Link to={`/films/${id}/overview`} className="film-nav__link">Overview</Link>
-                  </li>
-                  <li className="film-nav__item">
-                    <Link to={`/films/${id}/details`} className="film-nav__link">Details</Link>
-                  </li>
-                  <li className="film-nav__item">
-                    <Link to={`/films/${id}/reviews`} className="film-nav__link">Reviews</Link>
-                  </li>
+                  {tabTitles.map((item, index) => (
+                    <li key={item} className={`film-nav__item ${tab === tabTitles[index] ? 'film-nav__item--active' : ''} `}>
+                      <Link to={`/films/${id}/${tabTitles[index]}`} className="film-nav__link">{item[0].toUpperCase() + item.slice(1)}</Link>
+                    </li>
+                  ))}
                 </ul>
               </nav>
 
-              <TabComponent film={film} comments={comments}/>
+              <TabComponent film={film} comments={comments} />
 
             </div>
           </div>
