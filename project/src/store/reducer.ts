@@ -2,22 +2,25 @@ import { createReducer } from '@reduxjs/toolkit';
 import { AuthorizationStatus, genres } from '../const';
 import { changeGenre, loadFilms, requireAuthorization, setDataLoadedStatus } from './actions';
 import { FilmType } from '../types/film';
+import { ReviewType } from '../types/review';
 
 type InitialStateType = {
   genre: string,
   movies: FilmType[],
   isDataLoaded: boolean,
-  authorizationStatus: AuthorizationStatus
+  authorizationStatus: AuthorizationStatus,
+  comments: ReviewType[]
 }
 
 // Объект начального состояния:
 // жанр (используется для фильтров по жанру),
-// список фильмов, загрузка данных, статус авторизации
+// список фильмов, загрузка данных, статус авторизации, список комментариев к фильму
 const initialState: InitialStateType = {
   genre: genres[0],
   movies: [],
   isDataLoaded: false,
-  authorizationStatus: AuthorizationStatus.Unknown
+  authorizationStatus: AuthorizationStatus.Unknown,
+  comments: []
 };
 
 //Функцию-редьюсер. Она принимает в качестве параметров текущий state и действие (action).

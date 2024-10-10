@@ -9,6 +9,7 @@ import Header from '../../components/header/header';
 export default function MoviePage(): JSX.Element {
   const { id, tab } = useParams();
   const films = useAppSelector((state) => state.movies);
+  const comments = useAppSelector((state) => state.comments);
   const film = films.find((it) => it.id === Number(id));
 
   const tabRoutes = {
@@ -77,7 +78,7 @@ export default function MoviePage(): JSX.Element {
                 </ul>
               </nav>
 
-              <TabComponent film={film} />
+              <TabComponent film={film} comments={comments}/>
 
             </div>
           </div>
