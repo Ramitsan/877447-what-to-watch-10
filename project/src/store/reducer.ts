@@ -2,14 +2,12 @@ import { createReducer } from '@reduxjs/toolkit';
 import { AuthorizationStatus, genres } from '../const';
 import { changeGenre, loadFilms, requireAuthorization, setDataLoadedStatus } from './actions';
 import { FilmType } from '../types/film';
-import { ReviewType } from '../types/review';
 
 type InitialStateType = {
   genre: string,
   movies: FilmType[],
   isDataLoaded: boolean,
   authorizationStatus: AuthorizationStatus,
-  comments: ReviewType[]
 }
 
 // Объект начального состояния:
@@ -20,7 +18,6 @@ const initialState: InitialStateType = {
   movies: [],
   isDataLoaded: false,
   authorizationStatus: AuthorizationStatus.Unknown,
-  comments: []
 };
 
 //Функцию-редьюсер. Она принимает в качестве параметров текущий state и действие (action).

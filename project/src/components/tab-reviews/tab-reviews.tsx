@@ -8,16 +8,18 @@ import { useParams } from 'react-router-dom';
 
 type TabReviewsProps = {
   film?: FilmType;
-  comments?: ReviewType[];
 }
 
-export default function TabReviews({film, comments} : TabReviewsProps): JSX.Element {
+export default function TabReviews({film} : TabReviewsProps): JSX.Element {
   const [filmComments, setFilmComments] = useState<ReviewType[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
+    setIsLoading(true);
     api.get(`/comments/${id}`).then((response) =>{
       setFilmComments(response.data);
+      setIsLoading(false);
     });
   }, [id]);
 
@@ -29,7 +31,9 @@ export default function TabReviews({film, comments} : TabReviewsProps): JSX.Elem
 
   return (
     <div className="film-card__reviews film-card__row">
-      <CommentsList reviews={filmComments}/>
+      {isLoading && 'Loading'}
+      {(!isLoading && filmComments.length) ? <CommentsList reviews={filmComments}/> : ''}
+      {(!isLoading && !filmComments.length) ? 'No comments' : ''}
     </div>
   );
 }
